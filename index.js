@@ -7,7 +7,7 @@ const game = new Game();
 const view = new View(
   root,
   {
-    width: 320,
+    width: 480,
     height: 640,
     rows: 20,
     columns: 10
