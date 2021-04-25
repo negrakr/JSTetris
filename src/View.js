@@ -1,21 +1,23 @@
 export class View {
-  constructor(element, width, height, rows, columns) {
+  constructor(element, options = {}) {
     this.element = element;
-    this.width = width;
-    this.height = height;
+    this.width = options.width;
+    this.height = options.height;
+    this.columns = options.columns;
+    this.rows = options.rows;
 
     this.canvas = document.createElement('canvas');
     this.canvas.width = this.width;
     this.canvas.height = this.height;
     this.context = this.canvas.getContext('2d');
 
-    this.blockWidth = this.width / columns;
-    this.blockHeight = this.height / rows;
+    this.blockWidth = this.width / options['columns'];
+    this.blockHeight = this.height / options['rows'];
 
     this.element.appendChild(this.canvas);
   }
 
-  render({playfield}) {
+  render({ playfield }) {
     this.clearScreen();
     this.renderPlayfield(playfield);
   }
